@@ -118,6 +118,7 @@ program-xpla3 = "glasgow.applet.program.xpla3:ProgramXPLA3Applet"
 
 control-servo = "glasgow.applet.control.servo:ControlServoApplet"
 control-tps6598x = "glasgow.applet.control.tps6598x:ControlTPS6598xApplet"
+control-fusb302 = "glasgow.applet.control.fusb302:ControlFUSB302Applet"
 
 sensor-bmx280 = "glasgow.applet.sensor.bmx280:SensorBMx280Applet"
 sensor-hx711 = "glasgow.applet.sensor.hx711:SensorHX711Applet"
