@@ -998,6 +998,7 @@ class FUSB302Interface:
                 self._logger.info("<ACCEPT")
             elif (type == PD_CTRL_PS_RDY):
                 self._logger.info("<PS_RDY")
+                self._state = STATE_READY
             elif (type == PD_CTRL_GET_SINK_CAP):
                 self._logger.info("<GET_SINK_CAP")
                 await self.send_sink_cap()
@@ -1057,7 +1058,7 @@ class FUSB302Interface:
         # Wait for source to connect
         while (self._state == STATE_DISCONNECTED): await self.handle_irq()
         # Wait for source to send Source Caps
-        while (True): await self.handle_irq()
+        while (self._state != STATE_READY): await self.handle_irq()
 
 class ControlFUSB302Applet(I2CInitiatorApplet):
     logger = logging.getLogger(__name__)
