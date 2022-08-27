@@ -1270,7 +1270,8 @@ class ControlFUSB302Applet(I2CInitiatorApplet):
     async def _monitor_alert(self, device, iface):
         while True:
             #alert = await device.read_register(self.__addr_alert, width=1)
-            alert = 0
+            alert = 1
+            print("Checking...")
             if (alert):
                 await iface.handle_irq()
             await asyncio.sleep(self._polling_period)
